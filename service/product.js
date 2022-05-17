@@ -8,7 +8,7 @@ const create = async ({ body, file }) => {
         proName: body.proName,
         proDesc: body.proDesc,
         proPrice: body.proPrice,
-        productPic: `http://192.168.20.231:6000/${file.path}`
+        productPic: `http://192.168.0.103:6000/${file.path}`
       }
       console.log(datas)
       const data = await product.create(datas)
