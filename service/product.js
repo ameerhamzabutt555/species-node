@@ -8,8 +8,9 @@ const create = async ({ body, file }) => {
         proName: body.proName,
         proDesc: body.proDesc,
         proPrice: body.proPrice,
-        productPic: file.path
+        productPic: `http://192.168.20.231:6000/${file.path}`
       }
+      console.log(datas)
       const data = await product.create(datas)
       return { type: 'success', message: `user created`, data }
     }
@@ -24,7 +25,7 @@ const allProducts = async () => {
   try {
     const data = await product.find()
     if (data) {
-      console.log(data)
+
       return { type: 'success', message: `user created`, data }
     }
     return { type: 'success', message: `No Data to process` }

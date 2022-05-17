@@ -4,7 +4,18 @@ const { productController } = require('../controllers')
 const app = express()
 const router = express.Router()
 var bodyParser = require('body-parser');
-const upload = multer({ dest: './uploads' })
+
+// const upload = multer({ dest: './uploads' })
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+
+})
+var upload = multer({ storage: storage })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true

@@ -10,7 +10,6 @@ const create = async (req, res) => {
   try {
 
     const data = await productServices.create(req)
-    // console.log(req)
     setResponse(res, data)
   } catch (error) {
     console.log('Error ', error)
@@ -21,6 +20,7 @@ const create = async (req, res) => {
 const allProducts = async (req, res) => {
   try {
     const data = await productServices.allProducts(req)
+    console.log(data)
     setResponse(res, data)
   } catch (error) {
     console.log('Error ', error)
